@@ -91,7 +91,7 @@ namespace SkyrimCash
             tender = Convert.ToInt16(changeBox.Text);
             change = tender - total;
             changeLabel.Text = "Change Due:         ";
-            changeLabel.Text += change.ToString("C");
+            changeLabel.Text += change.ToString("C"); 
             
             
         }
