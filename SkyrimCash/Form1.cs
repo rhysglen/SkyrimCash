@@ -31,20 +31,15 @@ namespace SkyrimCash
         {
             InitializeComponent();
         }
-
         private void button1_Click(object sender, EventArgs e)
-
-
         {
-            //graphics object,font,brush.
-            Graphics skyrim = this.CreateGraphics();
-            Font toddFont = new Font("Lithos Pro", 25, FontStyle.Regular);
-            SolidBrush toddBrush = new SolidBrush(Color.Gainsboro);
-
             try
             {
-                //converting variables 
+                // use for the try and catch
                 catchLabel.Visible = false;
+                moneyLabel.Visible = true;
+
+                //converting variables 
                 vanilla = Convert.ToInt16(vanillaBox.Text);
                 better = Convert.ToInt16(betterBox.Text);
                 same = Convert.ToInt16(sameBox.Text);
@@ -74,6 +69,8 @@ namespace SkyrimCash
                 moneyLabel.Text += total.ToString("C");
                 this.Refresh();
                 Thread.Sleep(500);
+
+                // for next step
                 changeButton.Visible = true;
                 cashLabel.Visible = true;
                 changeBox.Visible = true;
@@ -88,12 +85,71 @@ namespace SkyrimCash
         //Calculate change
         private void changeButton_Click(object sender, EventArgs e)
         {
-            tender = Convert.ToInt16(changeBox.Text);
-            change = tender - total;
-            changeLabel.Text = "Change Due:         ";
-            changeLabel.Text += change.ToString("C"); 
-            
-            
+            try
+            {
+                //for try and catch
+                catch2Label.Visible = false;
+                changeLabel.Visible = true;
+              
+                //calculations and display
+                tender = Convert.ToInt16(changeBox.Text);
+                change = tender - total;
+                changeLabel.Text = "Change Due:         ";
+                changeLabel.Text += change.ToString("C");
+
+                //next step
+                receiptButton.Visible = true;
+            }
+            catch
+            {
+                changeLabel.Visible = false;
+                catch2Label.Visible = true;
+                catch2Label.Text = "Hands to yourself, sneak theif !";
+            }
+        }
+
+        private void receiptButton_Click(object sender, EventArgs e)
+        {
+            //graphics object,font,brush.
+            Graphics skyrim = this.CreateGraphics();
+            Font toddFont = new Font("Lithos Pro", 25, FontStyle.Regular);
+            SolidBrush toddBrush = new SolidBrush(Color.White);
+            Pen toddPen = new Pen(Color.White,30);
+
+            //clear the screen
+            titleLabel.Visible = false;
+            vanillaLabel.Visible = false;
+            vanillaBox.Visible = false;
+            sameBox.Visible = false;
+            sameLabel.Visible = false;
+            betterBox.Visible = false;
+            betterLabel.Visible = false;
+            totalButton.Visible = false;
+            moneyLabel.Visible = false;
+            catchLabel.Visible = false;
+            catch2Label.Visible = false;
+            cashLabel.Visible = false;
+            changeBox.Visible = false;
+            changeButton.Visible = false;
+            changeLabel.Visible = false;
+            receiptButton.Visible = false;
+
+            //print 
+            Thread.Sleep(1000);
+            skyrim.FillRectangle(toddBrush, 100, 50, 520, 30);
+
+        }
+
+        private void cashRegister_Load(object sender, EventArgs e)
+        {
+            titleLabel.Visible = true;
+            vanillaLabel.Visible = true;
+            vanillaBox.Visible = true;
+            betterBox.Visible = true;
+            betterLabel.Visible = true;
+            sameBox.Visible = true;
+            sameLabel.Visible = true;
+            totalButton.Visible = true;
         }
     }
 }
