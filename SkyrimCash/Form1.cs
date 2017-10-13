@@ -26,6 +26,7 @@ namespace SkyrimCash
         double total = 0;
         double tender = 0;
         double change = 0;
+        int time = 600;
 
         public cashRegister()
         {
@@ -112,9 +113,10 @@ namespace SkyrimCash
         {
             //graphics object,font,brush.
             Graphics skyrim = this.CreateGraphics();
-            Font toddFont = new Font("Lithos Pro", 25, FontStyle.Regular);
+            Font toddFont = new Font("consolas", 14, FontStyle.Regular);
             SolidBrush toddBrush = new SolidBrush(Color.White);
             Pen toddPen = new Pen(Color.White,30);
+            SolidBrush textBrush = new SolidBrush(Color.Black);
 
             //clear the screen
             titleLabel.Visible = false;
@@ -137,6 +139,55 @@ namespace SkyrimCash
             //print 
             Thread.Sleep(1000);
             skyrim.FillRectangle(toddBrush, 100, 50, 520, 30);
+            Thread.Sleep(time);
+            skyrim.FillRectangle(toddBrush, 100, 80, 520, 30);
+            skyrim.DrawString("Todd's Skyrim Market" ,toddFont, textBrush, 250, 82);
+            Thread.Sleep(time);
+            skyrim.FillRectangle(toddBrush, 100, 110, 520, 30);
+            Thread.Sleep(time);
+            skyrim.FillRectangle(toddBrush, 100, 140, 520, 30);
+            skyrim.DrawString("Vanilla Skyrim X " + vanilla, toddFont, textBrush, 100,142);
+            skyrim.DrawString(" =  $" + vanilla * VANILLA, toddFont, textBrush, 480, 142);
+            Thread.Sleep(time);
+            skyrim.FillRectangle(toddBrush, 100, 170, 520, 30);
+            skyrim.DrawString("A Little Better Skyrim X " + better, toddFont, textBrush, 100, 172);
+            skyrim.DrawString(" =  $" + better * BETTER, toddFont, textBrush, 480, 172);
+            Thread.Sleep(time);
+            skyrim.FillRectangle(toddBrush, 100, 200, 520, 30);
+            skyrim.DrawString("The Same Skyrim X " + same , toddFont, textBrush, 100, 202);
+            skyrim.DrawString(" =  $" + same * SAME, toddFont, textBrush, 480, 202);
+            Thread.Sleep(time);
+            skyrim.FillRectangle(toddBrush, 100, 230, 520, 30);
+            Thread.Sleep(time);
+            skyrim.FillRectangle(toddBrush, 100, 260, 520, 30);
+            skyrim.DrawString("Subtotal", toddFont, textBrush, 100, 262);
+            skyrim.DrawString(" =  $" + cost, toddFont, textBrush, 480, 262);
+            Thread.Sleep(time);
+            skyrim.FillRectangle(toddBrush, 100, 290, 520, 30);
+            skyrim.DrawString("Tax", toddFont, textBrush, 100, 292);
+            skyrim.DrawString(" =  $" + tax, toddFont, textBrush, 480, 292);
+            Thread.Sleep(time);
+            skyrim.FillRectangle(toddBrush, 100, 320, 520, 30);
+            skyrim.DrawString("Total", toddFont, textBrush, 100, 322);
+            skyrim.DrawString(" =  $" + total, toddFont, textBrush, 480, 322);
+            Thread.Sleep(time);
+            skyrim.FillRectangle(toddBrush, 100, 350, 520, 30);
+            Thread.Sleep(time);
+            skyrim.FillRectangle(toddBrush, 100, 380, 520, 30);
+            skyrim.DrawString("Septims Tendered", toddFont, textBrush, 100, 382);
+            skyrim.DrawString(" =  $" + tender, toddFont, textBrush, 480, 382);
+            Thread.Sleep(time);
+            skyrim.FillRectangle(toddBrush, 100, 410, 520, 30);
+            skyrim.DrawString("Septims Due", toddFont, textBrush, 100, 412);
+            skyrim.DrawString(" =  $" + change, toddFont, textBrush, 480, 412);
+            Thread.Sleep(time);
+            skyrim.FillRectangle(toddBrush, 100, 440, 520, 30);
+            Thread.Sleep(time);
+            skyrim.FillRectangle(toddBrush, 100, 470, 520, 30);
+            Thread.Sleep(time);
+            skyrim.FillRectangle(toddBrush, 100, 500, 520, 30);
+          
+            newButton.Visible = true;
 
         }
 
@@ -150,6 +201,30 @@ namespace SkyrimCash
             sameBox.Visible = true;
             sameLabel.Visible = true;
             totalButton.Visible = true;
+        }
+
+        private void newButton_Click(object sender, EventArgs e)
+        {
+            newButton.Visible = false;
+            Graphics skyrim = this.CreateGraphics();
+            skyrim.Clear(Color.Black);
+            double vanilla = 0;
+            double better = 0;
+            double same = 0;
+            double cost = 0;
+            double tax = 0;
+            double total = 0;
+            double tender = 0;
+            double change = 0;
+            titleLabel.Visible = true;
+            vanillaLabel.Visible = true;
+            vanillaBox.Visible = true;
+            betterBox.Visible = true;
+            betterLabel.Visible = true;
+            sameBox.Visible = true;
+            sameLabel.Visible = true;
+            totalButton.Visible = true;
+           
         }
     }
 }

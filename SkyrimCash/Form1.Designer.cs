@@ -44,6 +44,7 @@
             this.cashLabel = new System.Windows.Forms.Label();
             this.changeLabel = new System.Windows.Forms.Label();
             this.catch2Label = new System.Windows.Forms.Label();
+            this.newButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // titleLabel
@@ -95,7 +96,7 @@
             this.vanillaBox.Location = new System.Drawing.Point(560, 83);
             this.vanillaBox.Name = "vanillaBox";
             this.vanillaBox.Size = new System.Drawing.Size(28, 27);
-            this.vanillaBox.TabIndex = 4;
+            this.vanillaBox.TabIndex = 1;
             this.vanillaBox.Visible = false;
             // 
             // sameBox
@@ -103,7 +104,7 @@
             this.sameBox.Location = new System.Drawing.Point(560, 198);
             this.sameBox.Name = "sameBox";
             this.sameBox.Size = new System.Drawing.Size(28, 27);
-            this.sameBox.TabIndex = 5;
+            this.sameBox.TabIndex = 3;
             this.sameBox.Visible = false;
             // 
             // betterBox
@@ -111,7 +112,7 @@
             this.betterBox.Location = new System.Drawing.Point(560, 138);
             this.betterBox.Name = "betterBox";
             this.betterBox.Size = new System.Drawing.Size(28, 27);
-            this.betterBox.TabIndex = 6;
+            this.betterBox.TabIndex = 2;
             this.betterBox.Visible = false;
             // 
             // totalButton
@@ -122,7 +123,7 @@
             this.totalButton.Location = new System.Drawing.Point(291, 237);
             this.totalButton.Name = "totalButton";
             this.totalButton.Size = new System.Drawing.Size(152, 41);
-            this.totalButton.TabIndex = 7;
+            this.totalButton.TabIndex = 4;
             this.totalButton.Text = "Spend Money";
             this.totalButton.UseVisualStyleBackColor = false;
             this.totalButton.Visible = false;
@@ -136,7 +137,7 @@
             this.changeButton.Location = new System.Drawing.Point(291, 525);
             this.changeButton.Name = "changeButton";
             this.changeButton.Size = new System.Drawing.Size(152, 45);
-            this.changeButton.TabIndex = 8;
+            this.changeButton.TabIndex = 6;
             this.changeButton.Text = "Calculate Septims";
             this.changeButton.UseVisualStyleBackColor = false;
             this.changeButton.Visible = false;
@@ -150,7 +151,7 @@
             this.receiptButton.Location = new System.Drawing.Point(291, 633);
             this.receiptButton.Name = "receiptButton";
             this.receiptButton.Size = new System.Drawing.Size(152, 38);
-            this.receiptButton.TabIndex = 9;
+            this.receiptButton.TabIndex = 7;
             this.receiptButton.Text = "Print Receipt";
             this.receiptButton.UseVisualStyleBackColor = false;
             this.receiptButton.Visible = false;
@@ -179,7 +180,7 @@
             this.changeBox.Location = new System.Drawing.Point(549, 481);
             this.changeBox.Name = "changeBox";
             this.changeBox.Size = new System.Drawing.Size(69, 27);
-            this.changeBox.TabIndex = 12;
+            this.changeBox.TabIndex = 5;
             this.changeBox.Visible = false;
             // 
             // cashLabel
@@ -211,12 +212,27 @@
             this.catch2Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.catch2Label.Visible = false;
             // 
+            // newButton
+            // 
+            this.newButton.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.newButton.Font = new System.Drawing.Font("Lithos Pro Regular", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newButton.ForeColor = System.Drawing.Color.Black;
+            this.newButton.Location = new System.Drawing.Point(291, 581);
+            this.newButton.Name = "newButton";
+            this.newButton.Size = new System.Drawing.Size(152, 45);
+            this.newButton.TabIndex = 8;
+            this.newButton.Text = "Buy It Again";
+            this.newButton.UseVisualStyleBackColor = false;
+            this.newButton.Visible = false;
+            this.newButton.Click += new System.EventHandler(this.newButton_Click);
+            // 
             // cashRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(715, 733);
+            this.Controls.Add(this.newButton);
             this.Controls.Add(this.catch2Label);
             this.Controls.Add(this.changeLabel);
             this.Controls.Add(this.cashLabel);
@@ -262,6 +278,7 @@
         private System.Windows.Forms.Label cashLabel;
         private System.Windows.Forms.Label changeLabel;
         private System.Windows.Forms.Label catch2Label;
+        private System.Windows.Forms.Button newButton;
     }
 }
 
