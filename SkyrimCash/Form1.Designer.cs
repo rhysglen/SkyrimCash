@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(cashRegister));
             this.titleLabel = new System.Windows.Forms.Label();
             this.vanillaLabel = new System.Windows.Forms.Label();
             this.sameLabel = new System.Windows.Forms.Label();
@@ -251,6 +252,7 @@
             this.Controls.Add(this.titleLabel);
             this.Font = new System.Drawing.Font("Lithos Pro Regular", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Gainsboro;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.Name = "cashRegister";
             this.Text = "Todd\'s Skyrim Market";

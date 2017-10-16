@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using System.Media;
 //Rhyss Glenfield October 10, 2017 Cash register 
 namespace SkyrimCash
 {
@@ -27,6 +28,10 @@ namespace SkyrimCash
         double tender = 0;
         double change = 0;
         int time = 600;
+        SoundPlayer clash = new SoundPlayer(Properties.Resources.sword);
+        SoundPlayer chop = new SoundPlayer(Properties.Resources.decap);
+        SoundPlayer money = new SoundPlayer(Properties.Resources.cash);
+        SoundPlayer print = new SoundPlayer(Properties.Resources.print);
 
         public cashRegister()
         {
@@ -36,6 +41,9 @@ namespace SkyrimCash
         {
             try
             {
+                //sound plays
+                clash.Play();
+               
                 // use for the try and catch
                 catchLabel.Visible = false;
                 moneyLabel.Visible = true;
@@ -81,6 +89,7 @@ namespace SkyrimCash
                 moneyLabel.Visible = false;
                 catchLabel.Visible = true;
                 catchLabel.Text = "No Lollygagging!";
+                chop.Play();
             }
         }
         //Calculate change
@@ -97,7 +106,9 @@ namespace SkyrimCash
                 change = tender - total;
                 changeLabel.Text = "Change Due:         ";
                 changeLabel.Text += change.ToString("C");
-
+               
+                //sound plays
+                money.Play();
                 //next step
                 receiptButton.Visible = true;
             }
@@ -106,6 +117,7 @@ namespace SkyrimCash
                 changeLabel.Visible = false;
                 catch2Label.Visible = true;
                 catch2Label.Text = "Hands to yourself, sneak theif !";
+                chop.Play();
             }
         }
 
@@ -137,11 +149,13 @@ namespace SkyrimCash
             receiptButton.Visible = false;
 
             //print 
+            print.Play();
             Thread.Sleep(1000);
             skyrim.FillRectangle(toddBrush, 100, 50, 520, 30);
             Thread.Sleep(time);
             skyrim.FillRectangle(toddBrush, 100, 80, 520, 30);
             skyrim.DrawString("Todd's Skyrim Market" ,toddFont, textBrush, 250, 82);
+            print.Play();
             Thread.Sleep(time);
             skyrim.FillRectangle(toddBrush, 100, 110, 520, 30);
             Thread.Sleep(time);
@@ -149,6 +163,7 @@ namespace SkyrimCash
             skyrim.DrawString("Vanilla Skyrim X " + vanilla, toddFont, textBrush, 100,142);
             skyrim.DrawString(" =  $" + vanilla * VANILLA, toddFont, textBrush, 480, 142);
             Thread.Sleep(time);
+            print.Play();
             skyrim.FillRectangle(toddBrush, 100, 170, 520, 30);
             skyrim.DrawString("A Little Better Skyrim X " + better, toddFont, textBrush, 100, 172);
             skyrim.DrawString(" =  $" + better * BETTER, toddFont, textBrush, 480, 172);
@@ -159,34 +174,38 @@ namespace SkyrimCash
             Thread.Sleep(time);
             skyrim.FillRectangle(toddBrush, 100, 230, 520, 30);
             Thread.Sleep(time);
+            print.Play();
             skyrim.FillRectangle(toddBrush, 100, 260, 520, 30);
             skyrim.DrawString("Subtotal", toddFont, textBrush, 100, 262);
-            skyrim.DrawString(" =  $" + cost, toddFont, textBrush, 480, 262);
+            skyrim.DrawString(" =  " + cost.ToString("C"), toddFont, textBrush, 480, 262);
             Thread.Sleep(time);
             skyrim.FillRectangle(toddBrush, 100, 290, 520, 30);
             skyrim.DrawString("Tax", toddFont, textBrush, 100, 292);
-            skyrim.DrawString(" =  $" + tax, toddFont, textBrush, 480, 292);
+            skyrim.DrawString(" =  " + tax.ToString("C"), toddFont, textBrush, 480, 292);
             Thread.Sleep(time);
+            print.Play();
             skyrim.FillRectangle(toddBrush, 100, 320, 520, 30);
             skyrim.DrawString("Total", toddFont, textBrush, 100, 322);
-            skyrim.DrawString(" =  $" + total, toddFont, textBrush, 480, 322);
+            skyrim.DrawString(" =  " + total.ToString("C"), toddFont, textBrush, 480, 322);
             Thread.Sleep(time);
             skyrim.FillRectangle(toddBrush, 100, 350, 520, 30);
             Thread.Sleep(time);
             skyrim.FillRectangle(toddBrush, 100, 380, 520, 30);
             skyrim.DrawString("Septims Tendered", toddFont, textBrush, 100, 382);
-            skyrim.DrawString(" =  $" + tender, toddFont, textBrush, 480, 382);
+            skyrim.DrawString(" =  " + tender.ToString("C"), toddFont, textBrush, 480, 382);
             Thread.Sleep(time);
+            print.Play();
             skyrim.FillRectangle(toddBrush, 100, 410, 520, 30);
             skyrim.DrawString("Septims Due", toddFont, textBrush, 100, 412);
-            skyrim.DrawString(" =  $" + change, toddFont, textBrush, 480, 412);
+            skyrim.DrawString(" =  " + change.ToString("C"), toddFont, textBrush, 480, 412);
             Thread.Sleep(time);
             skyrim.FillRectangle(toddBrush, 100, 440, 520, 30);
             Thread.Sleep(time);
             skyrim.FillRectangle(toddBrush, 100, 470, 520, 30);
             Thread.Sleep(time);
             skyrim.FillRectangle(toddBrush, 100, 500, 520, 30);
-          
+         
+            //start new program
             newButton.Visible = true;
 
         }
@@ -205,9 +224,19 @@ namespace SkyrimCash
 
         private void newButton_Click(object sender, EventArgs e)
         {
+            //sound plays
+            money.Play();
+
+            //refersh the program
+            this.Refresh();
             newButton.Visible = false;
             Graphics skyrim = this.CreateGraphics();
             skyrim.Clear(Color.Black);
+            vanillaBox.Text = "";
+            betterBox.Text = "";
+            sameBox.Text = "";
+            moneyLabel.Text = "";
+            changeBox.Text = "";
             double vanilla = 0;
             double better = 0;
             double same = 0;

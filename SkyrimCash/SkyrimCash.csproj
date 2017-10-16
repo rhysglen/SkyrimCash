@@ -64,6 +64,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -77,6 +78,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Cha_Ching_Register-Muska666-173262285.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Drop Sword-SoundBible.com-768774345.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dot Matrix Printer-SoundBible.com-790333844.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Decapitation-SoundBible.com-800292304.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\skyrim-icon-41596-16x16.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
